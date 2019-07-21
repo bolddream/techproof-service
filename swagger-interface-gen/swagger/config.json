@@ -1,0 +1,12 @@
+{
+"apiPackage": "com.mancheng.cn.techproof.api",
+"groupId":"com.mancheng.ap",
+"artifactId": "techproof-service",
+"basePackage": "com.mancheng.cn.techproof",
+"configPackage": "com.mancheng.cn.techproof.cloud.config",
+"modelPackage": "com.mancheng.cn.techproof.model",
+"language": "spring-boot",
+"useRxJava":"true",
+"delegatePattern": "true",
+"hideGenerationTimestamp": "true"
+}

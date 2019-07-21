@@ -1,0 +1,80 @@
+swagger: '2.0'
+info:
+  title: techproof-service
+  description: Techproof Service
+  version: 1.0.0
+schemes:
+  - https
+basePath: /
+produces:
+  - application/json
+paths:         
+  '/baiduHome/v1':
+    post:
+      operationId: baiduHomePageInfo
+      parameters:
+        - in: body
+          name: requestJsonBody
+          required: false
+          description: baidu homepage info parameters
+          schema:
+            $ref: '#/definitions/BaiduHomePageData'
+      responses:
+        200:
+          description: "OK"
+          schema: 
+            $ref: '#/definitions/BaiduHomePageResponseData'
+        404:
+          description: "Resource Not Found"
+definitions:
+  BaiduHomePageData:
+    type: object
+    properties:
+      title:
+        type: string
+        example: "baidu"
+      dateTime:
+        type: string
+        example: "2019-01-01 00:00:00"
+        
+  BaiduHomePageResponseData:
+    type: object
+    properties: 
+      responseData:
+        $ref: '#/definitions/BaiduHomePageResponseParameter'
+      returnCode:
+        type: integer
+        example: 0
+      returnMessage:
+        type: string
+        example: "Success"
+        
+  BaiduHomePageResponseParameter:
+    type: object
+    properties:
+      title:
+        type: string
+        example: "1901"
+
+      
+  EchoData:
+    type: object
+    properties:
+      message:
+        type: string
+        example: "Hello, how are you?"
+  DemoResponse:
+    type: object
+    properties:
+      result:
+        type: string
+      errors:
+        $ref: '#/definitions/Errors'
+  Errors:
+    type: object
+    description: error model for exception
+    properties:
+      errorList:
+        type: array
+        items:
+          type: string 
